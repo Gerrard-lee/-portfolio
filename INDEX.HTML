@@ -1,72 +1,341 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>티유치과 소개</title>
-  <style>
-    body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; }
-    header { background: #0077b6; color: white; padding: 40px; text-align: center; }
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    h2 { color: #0077b6; margin-bottom: 20px; }
-    .services { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-    .card { border: 1px solid #ddd; border-radius: 12px; padding: 20px; width: 250px; text-align: center; }
-    footer { background: #f1f1f1; text-align: center; padding: 20px; font-size: 14px; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>포트폴리오 — CX·CS·전략기획 (MSO/CIP)</title>
+<meta name="description" content="CX·CS·VOC 운영 / 전략기획 / MSO·CIP 포트폴리오 - 단일 파일 오프라인 버전">
+
+<style>
+  :root{
+    --bg:#0b1220; --card:#0f172a; --line:#1e293b; --fg:#e2e8f0; --muted:#9fb1c8;
+    --brand:#7dd3fc; --brand2:#c084fc; --chip:#132036; --ok:#34d399;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1220,#0b1220 40%,#0a1020);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  .section{padding:68px 0}
+  .title{font-size:clamp(26px,3.2vw,34px);font-weight:800;margin:0 0 10px}
+  .lead{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.1rem;border-radius:12px;border:1px solid var(--line);background:linear-gradient(90deg,var(--brand),var(--brand2));color:#0b1220;font-weight:800}
+  .btn.ghost{background:#0b1220;color:#cbd5e1;border-color:#26344a}
+  .chip{display:inline-flex;gap:.4rem;align-items:center;font-size:12px;border:1px solid var(--line);padding:.3rem .6rem;border-radius:999px;background:var(--chip);color:#cbd5e1}
+  .tag{display:inline-block;padding:.2rem .55rem;border:1px solid #203250;border-radius:999px;font-size:11px;letter-spacing:.06em;color:#8ba4c4;text-transform:uppercase}
+
+  .nav{position:sticky;top:0;background:rgba(9,14,24,.75);backdrop-filter:blur(8px);border-bottom:1px solid #13243a;z-index:40}
+  .nav-inner{height:66px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;gap:.6rem;align-items:center}
+  .badge{width:32px;height:32px;border-radius:10px;background:linear-gradient(120deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#0b1220;font-weight:900}
+  .nav-links{display:none;gap:1.1rem;color:#cbd5e1}
+  @media(min-width:860px){.nav-links{display:flex}}
+
+  .hero{position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:-40% -10% auto;height:520px;pointer-events:none;filter:blur(60px);opacity:.5;
+    background:
+      radial-gradient(600px 240px at 8% 10%, rgba(125,211,252,.22), transparent),
+      radial-gradient(600px 240px at 92% 12%, rgba(192,132,252,.20), transparent);
+  }
+  .grid-2{display:grid;gap:2rem}
+  @media(min-width:980px){.grid-2{grid-template-columns:1.1fr .9fr}}
+  .h1{font-size:clamp(30px,4.2vw,52px);line-height:1.08;margin:10px 0 0}
+  .points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 1rem;margin-top:.8rem;color:#a6b2c4}
+
+  .card{background:linear-gradient(180deg,#0d1830,#0c1528);border:1px solid #19253b;border-radius:16px}
+  .card .hd{padding:18px 20px 10px}
+  .card .bd{padding:0 20px 18px}
+
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:900px){.metrics{grid-template-columns:repeat(4,1fr)}}
+  .m{background:#0d1628;border:1px solid #1b2740;border-radius:14px;padding:14px;text-align:center}
+  .m .n{font-weight:800;font-size:22px;color:#eaf2ff}
+  .m .l{font-size:12px;color:#9eb2cc}
+
+  .timeline{display:grid;gap:14px}
+  .row{display:grid;gap:.6rem;border:1px solid #1b2842;background:#0d182c;border-radius:14px;padding:16px}
+  .row h4{margin:0;font-size:18px}
+  .row .meta{color:#9fb1c8;font-size:13px}
+  .bullets{margin:6px 0 0;padding-left:18px;color:#c7d2e0}
+  .bullets li{margin:.3rem 0}
+
+  .gallery{display:grid;gap:12px}
+  @media(min-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  .case{border:1px solid #1b2740;border-radius:16px;overflow:hidden;background:#0e1830}
+  .thumb{height:160px;background:linear-gradient(120deg,#16243c,#0e1a2e);display:grid;place-items:center;color:#a6b2c4;font-size:13px}
+  .case .bd{padding:16px}
+
+  .grid-2c{display:grid;gap:1.2rem}
+  @media(min-width:960px){.grid-2c{grid-template-columns:1fr 1fr}}
+  input,textarea{width:100%;padding:.9rem;border-radius:10px;border:1px solid #1b2740;background:#0a1426;color:#e2e8f0;outline:none}
+  textarea{min-height:120px;resize:vertical}
+
+  footer{border-top:1px solid #132034}
+  .foot{display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:18px 0;color:#96a5b8}
+</style>
 </head>
 <body>
 
-<header>
-  <h1>티유치과</h1>
-  <p>환자의 건강과 아름다운 미소를 함께 지켜드립니다</p>
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="logo">
+      <div class="badge">CX</div>
+      <strong>[이름] 포트폴리오</strong>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">소개</a>
+      <a href="#experience">경력</a>
+      <a href="#cases">프로젝트</a>
+      <a href="#skills">스킬/자격</a>
+      <a href="#contact">연락처</a>
+    </nav>
+    <a class="btn" href="#contact">협업 문의</a>
+  </div>
 </header>
 
-<section>
-  <h2>병원 소개</h2>
-  <p>
-    티유치과는 첨단 장비와 숙련된 의료진을 바탕으로 환자 맞춤형 진료를 제공합니다.  
-    임플란트, 교정, 심미치과 등 다양한 분야에서 전문성을 갖추고 있으며,  
-    환자의 편안함과 안전을 최우선으로 생각합니다.
-  </p>
-</section>
+<!-- HERO -->
+<section class="hero section">
+  <div class="container grid-2">
+    <div>
+      <span class="chip">CX·CS·VOC 운영 / 전략기획 / MSO·CIP</span>
+      <h1 class="h1">데이터로 실행하는<br>**CX·운영 리더**</h1>
+      <p class="lead">
+        의료 MSO/CIP·커머스 환경에서 CS/민원 운영 표준화, SLA 기반 BPO 운영, Zendesk 도입,
+        KPI·EBITDA·BEP 중심 의사결정을 통해 **전략–운영–데이터**를 연결합니다.
+      </p>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:16px">
+        <a class="btn" href="#cases">대표 프로젝트 보기</a>
+        <a class="btn ghost" href="#contact">연락하기</a>
+      </div>
+      <ul class="points">
+        <li>✅ CX·CS 체계 구축 & VOC 프로세스 정립</li>
+        <li>✅ SLA 기반 BPO 운영/QA/교육</li>
+        <li>✅ Zendesk 등 솔루션 도입·고도화</li>
+        <li>✅ KPI·EBITDA·BEP 스토리텔링</li>
+      </ul>
+    </div>
 
-<section>
-  <h2>진료 과목</h2>
-  <div class="services">
-    <div class="card">
-      <h3>임플란트</h3>
-      <p>정확한 진단과 최신 기술을 활용한 안전한 시술</p>
-    </div>
-    <div class="card">
-      <h3>교정 치료</h3>
-      <p>연령별 맞춤 교정 솔루션 제공</p>
-    </div>
-    <div class="card">
-      <h3>심미 치과</h3>
-      <p>자연스럽고 아름다운 미소를 위한 치료</p>
+    <div>
+      <div class="card">
+        <div class="hd"><strong>핵심 지표 스냅샷</strong></div>
+        <div class="bd">
+          <div class="metrics">
+            <div class="m"><div class="n">SLA 95%+</div><div class="l">응답/처리율 체계화</div></div>
+            <div class="m"><div class="n">NPS·CSAT ↑</div><div class="l">고객경험 개선</div></div>
+            <div class="m"><div class="n">전환율 ↑</div><div class="l">마케팅 협업</div></div>
+            <div class="m"><div class="n">표준화</div><div class="l">매뉴얼/정책 구축</div></div>
+          </div>
+          <p class="lead" style="margin-top:12px">* 실제 수치는 조직 보안에 맞춰 조정 — 인터뷰 시 상세 지표 제공 가능</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>의료진 소개</h2>
-  <p>풍부한 임상 경험을 가진 전문 의료진이 최선의 진료를 약속드립니다.</p>
-  <ul>
-    <li>홍길동 원장 – 보철 전문의</li>
-    <li>김철수 원장 – 교정 전문의</li>
-  </ul>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container grid-2">
+    <div>
+      <h2 class="title">소개</h2>
+      <p class="lead">
+        현재 <b>티유게더 / 티유치과의원</b> 전략기획 리드. MSO 환경의 민원/운영 특수성을 반영한
+        <b>운영 표준화·지표체계·협업 프로세스</b>를 총괄합니다.
+        과거 <b>카카오스타일, 핏펫, 공영홈쇼핑, 쿠팡</b> 등에서 CX/CS 운영과 전략기획 경험을 쌓았습니다.
+      </p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:10px">
+        <span class="chip">MSO·CIP</span>
+        <span class="chip">SLA·BPO</span>
+        <span class="chip">Zendesk</span>
+        <span class="chip">SQL / Python 협업</span>
+        <span class="chip">Tableau / Looker Studio</span>
+        <span class="chip">EBITDA / BEP</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="hd"><strong>업무 포커스</strong></div>
+      <div class="bd">
+        <ul class="bullets">
+          <li>민원·CX 운영 표준화(접점–분류–SLA–재발관리)</li>
+          <li>Zendesk 전환/고도화, 채널 통합, 매크로/자동화</li>
+          <li>BPO 운영(계약·SLA·QA·교육) 및 대시보드 운영</li>
+          <li>KPI/EBITDA/BEP 기반 목표관리 및 경영 리포트</li>
+          <li>마케팅 협업(전환/재방문/리텐션) 데이터 스토리텔링</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>위치 & 연락처</h2>
-  <p>서울 서초구 서초대로 000 (더블유타워 13층)</p>
-  <p>전화: 02-1234-5678</p>
-  <p>예약: <a href="https://tu-dental.co.kr" target="_blank">공식 홈페이지 바로가기</a></p>
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="title">경력</h2>
+    <div class="timeline">
+      <div class="row">
+        <h4>티유게더 · 전략기획실 실장 (MSO/CIP) <span class="tag">현재</span></h4>
+        <div class="meta">2024–현재 | 의료 MSO/클리닉 운영</div>
+        <ul class="bullets">
+          <li>MSO 특화 민원·CS 운영 체계(접수–처리–리뷰) 설계 및 정착</li>
+          <li>지표 구조: SLA·처리시간·재발률·CSAT/NPS 구성 및 리포트링</li>
+          <li>마케팅·클리닉 운영 협업(가격/프로모션/재방문/전환)</li>
+        </ul>
+      </div>
+      <div class="row">
+        <h4>카카오스타일 · CS 운영 매니저</h4>
+        <div class="meta">— | 패션커머스</div>
+        <ul class="bullets">
+          <li>고객센터 안정화, 글로벌 CS 운영 정책 수립</li>
+          <li>Zendesk 도입/전환 및 매크로/자동화로 효율 개선</li>
+          <li>BPO 운영(SLA/QA/교육) 및 KPI 대시보드 운영</li>
+        </ul>
+      </div>
+      <div class="row">
+        <h4>핏펫 · 공영홈쇼핑 · 쿠팡 · 팬택계열 外</h4>
+        <div class="meta">— | 커머스/리테일/제조</div>
+        <ul class="bullets">
+          <li>CX/CS 운영 정책 및 프로세스 개선, 재발 이슈 감축</li>
+          <li>물류/정산/상품·반품 정책 개선 협업</li>
+          <li>경영·운영 리포트, KPI/원가/손익 관점 의사결정 지원</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases" class="section">
+  <div class="container">
+    <h2 class="title">대표 프로젝트</h2>
+    <p class="lead">보안상 수치 비공개 항목은 범주형 지표로 대체. 요청 시 인터뷰에서 세부 제공 가능.</p>
+    <div class="gallery" style="margin-top:16px">
+      <article class="case">
+        <div class="thumb">썸네일 A</div>
+        <div class="bd">
+          <h3 style="margin:0 0 6px">A. 고객센터 표준화 & SLA 운영</h3>
+          <p class="lead">접점/우선순위/SLA 재정의, 대기·처리시간 관리, 주간 KPI 리뷰, QA·교육 체계.</p>
+          <ul class="bullets">
+            <li>성과: SLA 안정화, 재발률 하향, CSAT/NPS 개선 트렌드</li>
+            <li>툴: Zendesk, Spreadsheet/Looker Studio, Slack/Notion</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="thumb">썸네일 B</div>
+        <div class="bd">
+          <h3 style="margin:0 0 6px">B. MSO/CIP 운영체계 설계</h3>
+          <p class="lead">의료 민원 특수성 기반 프로세스·보안 문구·리스크 커뮤니케이션 가이드.</p>
+          <ul class="bullets">
+            <li>성과: 고충민원 재발 관리, 법적/의료 커뮤니케이션 리스크 최소화</li>
+            <li>협업: 의료진/본부/마케팅/재무/법무</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="thumb">썸네일 C</div>
+        <div class="bd">
+          <h3 style="margin:0 0 6px">C. 데이터 스토리텔링 & 경영 리포트</h3>
+          <p class="lead">EBITDA·BEP·전환/재방문 지표를 CX 관점과 연결, 우선순위 정렬 및 실행 트래킹.</p>
+          <ul class="bullets">
+            <li>성과: 비용·수익 균형 의사결정, 실행–리뷰 사이클 정착</li>
+            <li>스택: SQL/스프레드시트, Python 협업, Looker/Tableau</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container grid-2c">
+    <div>
+      <h2 class="title">역량 & 스택</h2>
+      <div class="card" style="margin-top:10px">
+        <div class="hd"><strong>도메인/프로세스</strong></div>
+        <div class="bd">
+          <div style="display:flex;gap:.45rem;flex-wrap:wrap">
+            <span class="chip">CX·CS 운영</span><span class="chip">VOC·민원</span>
+            <span class="chip">SLA/QA/교육</span><span class="chip">BPO 운영</span>
+            <span class="chip">Zendesk</span><span class="chip">정책/매뉴얼</span>
+            <span class="chip">경영리포트</span><span class="chip">EBITDA/BEP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="hd"><strong>데이터/툴</strong></div>
+        <div class="bd">
+          <div style="display:flex;gap:.45rem;flex-wrap:wrap">
+            <span class="chip">SQL</span><span class="chip">Python(협업)</span>
+            <span class="chip">Looker Studio</span><span class="chip">Tableau</span>
+            <span class="chip">Google Sheets</span><span class="chip">BigQuery(협업)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="title">자격 & 교육</h2>
+      <div class="row">
+        <div class="meta">주요</div>
+        <ul class="bullets">
+          <li>SQL개발자(SQLD) · 데이터분석준전문가(ADsP)</li>
+          <li>PCSQL Lv.3, GTQ 일러스트/포토샵(1급) 外</li>
+          <li>검색광고마케터 1급, 빅데이터분석기사(진행/계획)</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="meta">관심분야</div>
+        <ul class="bullets">
+          <li>MSO/CIP 운영 데이터화 · SaaS 기반 LTV · MRO/재고 최적화</li>
+          <li>CX 분석(OLS·상관·XGBoost 등 협업 적용)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container grid-2c">
+    <div>
+      <h2 class="title">연락처</h2>
+      <p class="lead">협업/채용/프로젝트 제안 환영. 아래 폼은 데모이며 제출 시 알림만 표시됩니다.</p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:8px">
+        <span class="chip">이메일: <b>you@example.com</b></span>
+        <span class="chip">휴대전화: <b>010-0000-0000</b></span>
+        <span class="chip">위치: 서울</span>
+      </div>
+    </div>
+    <form onsubmit="demo(event)">
+      <input placeholder="이름" required>
+      <input type="email" placeholder="이메일" required>
+      <input placeholder="연락처">
+      <textarea placeholder="문의 내용"></textarea>
+      <button class="btn" type="submit">보내기 →</button>
+    </form>
+  </div>
 </section>
 
 <footer>
-  <p>© 2025 티유치과. All Rights Reserved.</p>
+  <div class="container foot">
+    <div>© <span id="y"></span> [이름]. All rights reserved.</div>
+    <div style="display:flex;gap:.6rem">
+      <a class="tag" href="#about">About</a>
+      <a class="tag" href="#experience">Experience</a>
+      <a class="tag" href="#cases">Cases</a>
+      <a class="tag" href="#skills">Skills</a>
+    </div>
+  </div>
 </footer>
 
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+  function demo(e){ e.preventDefault(); alert("제출(데모) — 실제 메일/시트 연동 가능."); e.target.reset(); }
+</script>
 </body>
 </html>
