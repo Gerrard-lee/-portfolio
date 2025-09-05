@@ -1,25 +1,162 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>테스트 페이지</title>
-  <style>
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    .wrap{max-width:900px;margin:40px auto;padding:0 20px}
-    header{position:sticky;top:0;background:#111;color:#fff;padding:12px 20px}
-    h1{margin:0;font-size:20px}
-    .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:16px 0;background:#fff}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #222;text-decoration:none}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[이름] — CX·CS·전략기획 포트폴리오</title>
+<meta name="description" content="CX·CS 운영 · 민원관리 · 전략기획 · MSO/CIP · Zendesk · SLA·BPO">
+<style>
+  :root{--bg:#0b1220;--fg:#e5eaf3;--mut:#9fb1c8;--line:#1b2b46;--card:#0f1a2e;--brand:#7dd3fc;--brand2:#c084fc}
+  *{box-sizing:border-box} html,body{margin:0;padding:0;background:#0b1220;color:var(--fg);font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  a{color:inherit;text-decoration:none} .container{max-width:980px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:10;background:rgba(10,17,34,.8);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{height:60px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;gap:.6rem;align-items:center} .badge{width:28px;height:28px;border-radius:10px;background:linear-gradient(120deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#061225;font-weight:800}
+  .hero{padding:54px 0;background:radial-gradient(600px 240px at 12% 10%,rgba(125,211,252,.18),transparent), radial-gradient(600px 240px at 88% 12%,rgba(192,132,252,.18),transparent)}
+  .h1{font-size:clamp(28px,4.5vw,44px);line-height:1.1;margin:8px 0 0}
+  .btn{display:inline-flex;gap:.5rem;align-items:center;padding:.75rem 1rem;border-radius:12px;border:1px solid var(--line);background:linear-gradient(90deg,var(--brand),var(--brand2));color:#071021;font-weight:800}
+  .ghost{background:#0b1220;color:#cfe2ff}
+  .chips{display:flex;gap:.4rem;flex-wrap:wrap} .chip{padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;color:#cfe2ff;background:#0a162b;font-size:12px}
+  .section{padding:40px 0;border-top:1px solid var(--line)} .title{margin:0 0 8px;font-size:20px;font-weight:800}
+  .cards{display:grid;gap:12px} @media(min-width:860px){.cards{grid-template-columns:1fr 1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .mut{color:var(--mut)} ul{margin:8px 0 0;padding-left:18px}
+  footer{border-top:1px solid var(--line)} .foot{padding:16px 0;color:#a9b8d1;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+</style>
 </head>
 <body>
-  <header><h1>배포 확인 페이지</h1></header>
-  <div class="wrap">
-    <div class="card">
-      <p>이 페이지가 보이면 <b>배포 성공</b>입니다. 이제 여기 내용을 포트폴리오 HTML로 교체하세요.</p>
-      <a class="btn" href="#ok">OK</a>
+
+<header>
+  <div class="container nav">
+    <div class="logo"><div class="badge">CX</div><strong>[이름] 포트폴리오</strong></div>
+    <nav style="display:flex;gap:1rem">
+      <a href="#about">소개</a><a href="#exp">경력</a><a href="#proj">프로젝트</a><a href="#contact">연락</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="chips">
+      <span class="chip">CX·CS 운영</span><span class="chip">민원 관리</span><span class="chip">전략기획</span>
+      <span class="chip">MSO/CIP</span><span class="chip">Zendesk</span><span class="chip">SLA·BPO</span>
+    </p>
+    <h1 class="h1">데이터로 실행하는 CX·운영 리더</h1>
+    <p class="mut">치과 MSO/클리닉 환경의 민원·CS 운영 표준화와 경영 관점의 전략기획을 연결합니다.  
+      KPI/EBITDA/BEP 기반 보고, BPO(SLA·QA·교육) 운영, Zendesk 도입·운영 경험을 보유하고 있으며 마케팅 협업으로 매출 데이터 분석까지 이어갑니다.</p>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:10px">
+      <a class="btn" href="#proj">대표 프로젝트 보기</a>
+      <a class="btn ghost" href="#contact">협업 문의</a>
     </div>
   </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container cards">
+    <div class="card">
+      <h2 class="title">한 줄 소개</h2>
+      <p class="mut">티유게더(치과 MSO) 전략기획 리드. 의료 서비스 특수성에 맞춘 민원/CS 운영 체계, 지표·보고 구조, 부서 간 협업을 설계·정착.</p>
+    </div>
+    <div class="card">
+      <h2 class="title">핵심 강점</h2>
+      <ul class="mut">
+        <li>민원·CS 운영 표준화(접수–분류–SLA–재발관리)와 리스크 커뮤니케이션</li>
+        <li>BPO 운영(SLA/QA/교육/계약) 및 Zendesk 전환·운영</li>
+        <li>경영지표 스토리(KPI·EBITDA·BEP)와 마케팅 협업 데이터 분석</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="exp" class="section">
+  <div class="container">
+    <h2 class="title">주요 경력</h2>
+    <div class="cards">
+      <div class="card">
+        <strong>티유게더 · 전략기획실 실장</strong><span class="mut"> 2024–현재</span>
+        <ul class="mut">
+          <li>MSO 특화 민원/CS 운영 체계 설계 및 지표·리포트 구조 구축</li>
+          <li>마케팅 협업: 매출/전환/재방문 지표 설계·분석 지원</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>카카오스타일 · CS 운영 매니저</strong>
+        <ul class="mut">
+          <li>고객센터 안정화, 글로벌 CS 운영 정책 수립</li>
+          <li>Zendesk 도입/전환, 매크로·자동화로 운영 효율 개선</li>
+          <li>BPO 운영(SLA/QA/교육) 및 KPI 대시보드 운영</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>핏펫 · 공영홈쇼핑 · 쿠팡 · 팬택계열 外</strong>
+        <ul class="mut">
+          <li>CS 운영 정책·프로세스 개선, 재발 이슈 감축</li>
+          <li>물류/정산/반품 정책 개선 협업, 경영·운영 리포트</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proj" class="section">
+  <div class="container">
+    <h2 class="title">대표 프로젝트 (요약)</h2>
+    <div class="cards">
+      <div class="card">
+        <strong>A. 고객센터 표준화 & SLA 운영</strong>
+        <ul class="mut">
+          <li>접점/우선순위/SLA 재정의, 대기·처리시간 관리, 주간 KPI 리뷰</li>
+          <li>효과: SLA 안정화, 재발률 하향, CSAT/NPS 개선 트렌드</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>B. MSO/클리닉 운영체계 설계</strong>
+        <ul class="mut">
+          <li>의료 민원 특수성 반영 프로세스·보안 문구·가이드 정립</li>
+          <li>효과: 고충민원 재발관리, 의료/법적 커뮤니케이션 리스크 최소화</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>C. 경영 리포트 & 데이터 스토리</strong>
+        <ul class="mut">
+          <li>EBITDA·BEP·전환/재방문 지표를 CX 관점과 연결, 우선순위 정렬</li>
+          <li>스택: 스프레드시트/SQL 협업, Looker Studio/Tableau</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container cards">
+    <div class="card">
+      <h2 class="title">연락처</h2>
+      <p class="mut">이메일 <b>you@example.com</b> · 휴대전화 <b>010-0000-0000</b> · 서울</p>
+      <form onsubmit="demo(event)" style="margin-top:8px">
+        <input placeholder="이름" required style="width:100%;padding:.8rem;border-radius:10px;border:1px solid var(--line);background:#0a1528;color:var(--fg);margin-bottom:8px">
+        <input type="email" placeholder="이메일" required style="width:100%;padding:.8rem;border-radius:10px;border:1px solid var(--line);background:#0a1528;color:var(--fg);margin-bottom:8px">
+        <textarea placeholder="문의 내용" style="width:100%;min-height:110px;padding:.8rem;border-radius:10px;border:1px solid var(--line);background:#0a1528;color:var(--fg);margin-bottom:8px"></textarea>
+        <button class="btn" type="submit">보내기 →</button>
+      </form>
+    </div>
+    <div class="card">
+      <h2 class="title">보유 자격·스킬</h2>
+      <p class="mut">SQLD, ADsP, PCSQL Lv.3, GTQ 일러스트 1급/포토샵 1급, 검색광고마케터 1급</p>
+      <p class="mut">툴/역량: Zendesk · SLA/QA · BPO 운영 · 스프레드시트/SQL · Python(협업) · Looker Studio · Tableau · BigQuery(협업)</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <span>© <span id="y"></span> [이름]. All rights reserved.</span>
+    <span class="mut">MSO·CIP / CX·CS 운영 / 전략기획</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  function demo(e){e.preventDefault();alert('제출(데모). 실제 메일/시트 연동 가능.');e.target.reset();}
+</script>
 </body>
 </html>
